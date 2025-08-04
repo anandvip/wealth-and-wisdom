@@ -1,0 +1,244 @@
+ <!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devils of Money – A Phenomenon Catalog</title>
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --card-bg: #fff;
+      --header-bg: #edf2f7;
+      --summary-bg: #e2e8f0;
+    }
+    body.dark-mode {
+      --bg-color: #111827;
+      --text-color: #e5e7eb;
+      --card-bg: #1f2937;
+      --header-bg: #374151;
+      --summary-bg: #4b5563;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 { text-align: center; margin-bottom: 2rem; color: var(--text-color); }
+    details {
+      background: var(--card-bg);
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 1rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      background: var(--summary-bg);
+      border-bottom: 1px solid #ccc;
+    }
+    .grid-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: #ccc;
+      font-size: 0.95rem;
+    }
+    .grid-table > div {
+      padding: 0.75rem;
+      background: var(--card-bg);
+    }
+    .grid-table .header {
+      font-weight: bold;
+      background: var(--header-bg);
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .controls button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .language-btn { background: #2563eb; color: #fff; }
+    .mode-btn { background: #10b981; color: #fff; }
+    @media (max-width: 600px) {
+      summary { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">🧾 Devils of Money – A Catalog of Hidden Influences</h1>  <div class="controls">
+    <button class="language-btn" onclick="toggleLanguage()">🌐 हिन्दी / English</button>
+    <button class="mode-btn" onclick="toggleMode()">🌓 Toggle Dark / Light</button>
+  </div>  <div id="content">
+    <!-- CONTENT WILL BE DYNAMICALLY INJECTED HERE -->
+  </div>  <footer style="margin-top: 3rem; text-align: center; font-size: 0.85rem; color: gray;">
+    <p>🔒 In reverence of awareness & abundance | © 2025</p>
+  </footer>  <script>
+    const contentEl = document.getElementById('content');
+    let lang = 'en';
+
+    const data = {
+      en: `<details open>
+  <summary>⚖️ I. Psychological Phenomena</summary>
+  <div class="grid-table">
+    <div class="header">Phenomenon</div><div class="header">Description</div><div class="header">Early Sign to Watch</div>
+    <div>Loss Aversion</div><div>Fear of losing money is stronger than joy of gaining it.</div><div>Over-cautiousness, paralysis in decision-making.</div>
+    <div>Hedonic Treadmill</div><div>Lifestyle upgrades stop bringing lasting joy.</div><div>Constant craving for "just a bit more" even when needs are met.</div>
+    <div>Money Priming</div><div>Thinking about money makes people more self-reliant and less helpful.</div><div>Reduced empathy, impatience with dependency.</div>
+    <div>Identity Enmeshment</div><div>Net worth becomes self-worth.</div><div>Mood tied closely to financial statements or public image.</div>
+  </div>
+</details>
+
+<details>
+  <summary>👥 II. Relational Distortions</summary>
+  <div class="grid-table">
+    <div class="header">Phenomenon</div><div class="header">Description</div><div class="header">Early Sign to Watch</div>
+    <div>Transactional Thinking</div><div>Reduces human interaction to cost-benefit.</div><div>Difficulty in giving or receiving without calculating return.</div>
+    <div>Power Imbalance</div><div>Money creates unspoken hierarchies.</div><div>Feeling superior/inferior based on earnings or possessions.</div>
+    <div>Family Entanglement</div><div>Inheritance or shared wealth warps family dynamics.</div><div>Guilt, secrecy, or entitlement around financial matters.</div>
+  </div>
+</details>
+
+<details>
+  <summary>🧠 III. Cognitive Biases</summary>
+  <div class="grid-table">
+    <div class="header">Phenomenon</div><div class="header">Description</div><div class="header">Early Sign to Watch</div>
+    <div>Sunk Cost Fallacy</div><div>Continue investing in something just because of what's already spent.</div><div>"We've already spent so much, we have to finish this."</div>
+    <div>Scarcity Mentality</div><div>Assumes there's not enough to go around.</div><div>Hoarding, envy, or fear-based saving even in abundance.</div>
+    <div>Anchoring Bias</div><div>First number seen influences value judgment.</div><div>Overpricing/underpricing something because of a comparison.</div>
+  </div>
+</details>
+
+<details>
+  <summary>🌐 IV. Cultural & Systemic Devils</summary>
+  <div class="grid-table">
+    <div class="header">Phenomenon</div><div class="header">Description</div><div class="header">Early Sign to Watch</div>
+    <div>Meritocracy Myth</div><div>Belief that financial success equals moral superiority.</div><div>Looking down on the poor, blind to privilege.</div>
+    <div>Consumer Identity</div><div>Self defined by what one owns or wears.</div><div>Emptiness after shopping highs, anxiety when offline.</div>
+    <div>Financialization of Everything</div><div>Turning all life areas into investment opportunities.</div><div>Monetizing hobbies, relationships, even attention.</div>
+  </div>
+</details>
+
+<details>
+  <summary>🧘‍♂️ V. Spiritual Distortions</summary>
+  <div class="grid-table">
+    <div class="header">Phenomenon</div><div class="header">Description</div><div class="header">Early Sign to Watch</div>
+    <div>False Abundance</div><div>Accumulation mistaken for spiritual richness.</div><div>Confusing excess with sufficiency or blessing.</div>
+    <div>Moral Justification</div><div>Framing greed as "smart business" or "manifestation".</div><div>Disregard for ethics if outcome looks prosperous.</div>
+    <div>Soul Substitution</div><div>Money fills existential voids temporarily.</div><div><button onclick="openModal('modal1')">Feeling safe only when financially secure, not emotionally whole. [Level 5]</button></div>
+  </div>
+</details>`,
+      hi: `<details open>
+  <summary>⚖️ I. मनोवैज्ञानिक घटनाएँ</summary>
+  <div class="grid-table">
+    <div class="header">घटना</div><div class="header">विवरण</div><div class="header">प्रारंभिक संकेत</div>
+    <div>हानि से बचाव</div><div>पैसा खोने का डर लाभ पाने की खुशी से अधिक होता है।</div><div>अत्यधिक सतर्कता, निर्णय में रुकावट।</div>
+    <div>हेडोनिक ट्रेडमिल</div><div>जीवनशैली में सुधार स्थायी खुशी नहीं लाता।</div><div>हमेशा "थोड़ा और" चाहने की भावना।</div>
+    <div>मनी प्राइमिंग</div><div>पैसे के बारे में सोचना लोगों को आत्मनिर्भर लेकिन कम मददगार बनाता है।</div><div>कम सहानुभूति, निर्भरता से असहजता।</div>
+    <div>पहचान का गूंथ जाना</div><div>शुद्ध संपत्ति = आत्म-मूल्य।</div><div>वित्तीय विवरणों के साथ मूड का उतार-चढ़ाव।</div>
+  </div>
+</details>
+
+<details>
+  <summary>👥 II. संबंधात्मक विकृति</summary>
+  <div class="grid-table">
+    <div class="header">घटना</div><div class="header">विवरण</div><div class="header">प्रारंभिक संकेत</div>
+    <div>लेन-देन सोच</div><div>मानव संबंध लाभ-हानि गणना में बदल जाते हैं।</div><div>बिना अपेक्षा के देना या लेना कठिन।</div>
+    <div>शक्ति असंतुलन</div><div>पैसे से अव्यक्त पदानुक्रम बनते हैं।</div><div>कमाई या संपत्ति के आधार पर श्रेष्ठ/हीन महसूस करना।</div>
+    <div>पारिवारिक उलझाव</div><div>विरासत या संयुक्त संपत्ति रिश्तों को बिगाड़ती है।</div><div>अपराधबोध, गोपनीयता, या अधिकार की भावना।</div>
+  </div>
+</details>
+
+<details>
+  <summary>🧠 III. संज्ञानात्मक पूर्वाग्रह</summary>
+  <div class="grid-table">
+    <div class="header">घटना</div><div class="header">विवरण</div><div class="header">प्रारंभिक संकेत</div>
+    <div>सनक लागत भ्रांति</div><div>पहले लगाए गए पैसे के कारण निवेश जारी रखना।</div><div>"इतना खर्च किया है, अब रुक नहीं सकते।"</div>
+    <div>अभाव मानसिकता</div><div>मान लेना कि सबके लिए पर्याप्त नहीं है।</div><div>संचय, ईर्ष्या, डर के कारण बचत।</div>
+    <div>एंकरिंग पूर्वाग्रह</div><div>पहली देखी गई कीमत बाद की तुलना को प्रभावित करती है।</div><div>अनुचित मूल्य निर्धारण।</div>
+  </div>
+</details>
+
+<details>
+  <summary>🌐 IV. सांस्कृतिक और प्रणालीगत दानव</summary>
+  <div class="grid-table">
+    <div class="header">घटना</div><div class="header">विवरण</div><div class="header">प्रारंभिक संकेत</div>
+    <div>योग्यता का भ्रम</div><div>वित्तीय सफलता = नैतिक श्रेष्ठता।</div><div>गरीबों को नीचा समझना, विशेषाधिकार को न देख पाना।</div>
+    <div>उपभोक्ता पहचान</div><div>स्वयं को केवल वस्तुओं के आधार पर परिभाषित करना।</div><div>खरीदारी के बाद खालीपन, ऑनलाइन नहीं रहने पर बेचैनी।</div>
+    <div>हर चीज का वित्तीयकरण</div><div>जीवन के हर क्षेत्र को निवेश में बदलना।</div><div>शौक, संबंध, ध्यान – सबका मुद्रीकरण।</div>
+  </div>
+</details>
+
+<details>
+  <summary>🧘‍♂️ V. आध्यात्मिक विकृति</summary>
+  <div class="grid-table">
+    <div class="header">घटना</div><div class="header">विवरण</div><div class="header">प्रारंभिक संकेत</div>
+    <div>झूठी प्रचुरता</div><div>जमा करना ही आंतरिक समृद्धि मान लेना।</div><div>जरूरत से ज्यादा को आशीर्वाद समझना।</div>
+    <div>नैतिक औचित्य</div><div>लालच को "स्मार्ट बिजनेस" बताना।</div><div>अगर परिणाम अच्छा हो तो नैतिकता की अनदेखी।</div>
+    <div>आत्मा का प्रतिस्थापन</div><div>पैसे से अस्तित्वगत खालीपन भरना।</div><div>सुरक्षा केवल वित्तीय होने पर महसूस होना।</div>
+  </div>
+</details>`
+    };
+
+    function toggleLanguage() {
+      lang = (lang === 'en') ? 'hi' : 'en';
+      contentEl.innerHTML = data[lang];
+      document.getElementById('title').textContent = lang === 'en'
+        ? '🧾 Devils of Money – A Catalog of Hidden Influences'
+        : '🧾 पैसों के दैत्य – छिपे प्रभावों की सूची';
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Default content
+    toggleLanguage(); // sets to Hindi first so toggleLanguage() sets it to English after load
+  </script>  <!--
+    Date created / updated / revisited / improved again: 2025-08-04
+    Tool name: OpenAI ChatGPT
+    Prompt used to generate the code:
+    "please make it available in hindi also a language toggle that converts entire content instantly in hindi and toggle back to english likewise. also embedding icons, dark mode [toggle to light]."
+
+    README.md:
+    # Devils of Money – Dual Language Webpage
+    A bilingual (English-Hindi) collapsible HTML catalog of how money distorts psychology, relationships, culture, and spirit.
+
+    Features:
+    - Toggle between English and Hindi
+    - Responsive collapsible panels with CSS Grid
+    - Dark/light theme toggle
+    - Minimalist styling, no external libraries
+  --><div id="modal1" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000;">
+  <div style="background:#fff; margin:10% auto; padding:2rem; max-width:600px; border-radius:8px; position:relative; color:#000;">
+    <button onclick="closeModal('modal1')" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.2rem; cursor:pointer;">✖</button>
+    <h2>In-Depth: Soul Substitution</h2>
+    <p><strong>Description:</strong> The phenomenon where a person feels emotionally secure only when financially secure indicates a deeper reliance on material stability as a surrogate for internal peace. It is commonly observed in high-stress economies and among individuals recovering from trauma or instability.</p>
+    <p><strong>Evidence:</strong> Clinical psychology identifies this as a displacement mechanism. Research in behavioral economics and therapy models (e.g., Maslow’s Hierarchy, ACT therapy) recognizes this pattern among individuals in high-capitalist societies.</p>
+    <p><strong>Symptoms:</strong> Anxiety about spending, inability to rest despite savings, chronic budgeting obsession, or viewing love/security as "earned through money."</p>
+    <p><strong>Reflection:</strong> Often rooted in upbringing or past resource scarcity. Emotional work and reparenting models can help restore balance.</p>
+    <p><strong>Level 5:</strong> Psychological + Economic + Social + Philosophical + Healing Method integrated explanation.</p>
+  </div>
+</div><script>
+  function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+</script></body>
+</html>
