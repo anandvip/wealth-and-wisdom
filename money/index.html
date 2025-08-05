@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Psychology of Money - Understanding Our Unconscious Relationship with Wealth</title>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        :root {
+            /* Color System */
+            --primary-600: #0f766e;
+            --primary-500: #14b8a6;
+            --primary-400: #2dd4bf;
+            --primary-100: #ccfbf1;
+            --primary-50: #f0fdfa;
+            
+            --secondary-600: #7c3aed;
+            --secondary-500: #8b5cf6;
+            --secondary-400: #a78bfa;
+            --secondary-100: #e4d4f4;
+            --secondary-50: #faf5ff;
+            
+            --accent-600: #ea580c;
+            --accent-500: #f97316;
+            --accent-400: #fb923c;
+            --accent-100: #fed7aa;
+            --accent-50: #fff7ed;
+            
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
+            /* Theme Variables */
+            --bg-primary: var(--white);
+            --bg-secondary: var(--gray-50);
+            --bg-tertiary: var(--gray-100);
+            --text-primary: var(--gray-900);
+            --text-secondary: var(--gray-700);
+            --text-tertiary: var(--gray-500);
+            --border-color: var(--gray-200);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: var(--gray-900);
+            --bg-secondary: var(--gray-800);
+            --bg-tertiary: var(--gray-700);
+            --text-primary: var(--gray-100);
+            --text-secondary: var(--gray-300);
+            --text-tertiary: var(--gray-400);
+            --border-color: var(--gray-600);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-4) var(--space-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-600);
+        }
+
+        .controls {
+            display: flex;
+            gap: var(--space-2);
+            align-items: center;
+        }
+
+        .control-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--primary-50);
+            border-color: var(--primary-200);
+            color: var(--primary-700);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+            padding: var(--space-16) var(--space-6);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-6);
+            background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-8);
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-600);
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-6) var(--space-16);
+        }
+
+        /* Category Cards */
+        .category {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: var(--space-6);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-header {
+            padding: var(--space-6);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .category-header:hover {
+            background: var(--primary-50);
+        }
+
+        .category-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            flex: 1;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .category-text {
+            flex: 1;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-1);
+            color: var(--text-primary);
+        }
+
+        .category-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .category-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .category-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .category.open .category-toggle {
+            transform: rotate(180deg);
+            background: var(--primary-100);
+            color: var(--primary-600);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .category.open .category-content {
+            max-height: 3000px;
+        }
+
+        /* Phenomena Grid */
+        .phenomena-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-6);
+            padding: var(--space-6);
+        }
+
+        .phenomenon-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phenomenon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .phenomenon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-200);
+        }
+
+        .phenomenon-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .phenomenon-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .phenomenon-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .phenomenon-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary-100);
+            color: var(--primary-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+        }
+
+        .phenomenon-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+            line-height: 1.7;
+        }
+
+        .early-warning {
+            background: var(--accent-50);
+            border: 1px solid var(--accent-200);
+            border-radius: 8px;
+            padding: var(--space-4);
+            border-left: 4px solid var(--accent-500);
+        }
+
+        .early-warning-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-2);
+            color: var(--accent-600);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .early-warning-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: var(--space-4);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+            color: white;
+            padding: var(--space-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--space-4);
+        }
+
+        .modal-header-content {
+            flex: 1;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .modal-body {
+            padding: var(--space-6);
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .insight-section {
+            margin-bottom: var(--space-8);
+        }
+
+        .insight-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .insight-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-100);
+            color: var(--primary-600);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .insight-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .insight-content {
+            background: var(--bg-secondary);
+            padding: var(--space-6);
+            border-radius: 12px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .reflection-box {
+            background: linear-gradient(135deg, var(--accent-50), var(--warning-50));
+            border: 1px solid var(--accent-200);
+            border-radius: 12px;
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .reflection-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+            color: var(--accent-600);
+        }
+
+        .reflection-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .self-assessment {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .assessment-title {
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--text-primary);
+        }
+
+        .slider-container {
+            margin: var(--space-4) 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--bg-tertiary);
+            outline: none;
+            margin: var(--space-2) 0;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-500);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        .slider-value {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-600);
+            margin-top: var(--space-2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: var(--space-3) var(--space-4);
+            }
+            
+            .hero {
+                padding: var(--space-12) var(--space-4);
+            }
+            
+            .hero-stats {
+                gap: var(--space-4);
+            }
+            
+            .container {
+                padding: 0 var(--space-4) var(--space-12);
+            }
+            
+            .phenomena-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+                padding: var(--space-4);
+            }
+            
+            .category-header {
+                padding: var(--space-4);
+            }
+            
+            .category-info {
+                gap: var(--space-3);
+            }
+            
+            .category-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .modal-header,
+            .modal-body {
+                padding: var(--space-4);
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i data-lucide="brain-circuit"></i>
+                <span>Money Psychology</span>
+            </div>
+            <nav class="controls">
+                <button class="control-btn" onclick="toggleLanguage()" id="langBtn">
+                    <i data-lucide="globe"></i>
+                    <span id="langText">हिन्दी</span>
+                </button>
+                <button class="control-btn" onclick="toggleTheme()" id="themeBtn">
+                    <i data-lucide="moon" id="themeIcon"></i>
+                    <span id="themeText">Dark</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">The Hidden Psychology of Money</h1>
+        <p class="hero-subtitle">
+            Discover how money unconsciously shapes your thoughts, relationships, and decisions through research-backed insights and self-reflection tools.
+        </p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Key Phenomena</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">165+</div>
+                <div class="stat-label">Studies Referenced</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div id="content">
+            <!-- Content will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-subtitle" id="modalSubtitle"></p>
+                </div>
+                <button class="modal-close" onclick="closeModal()" aria-label="Close modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State Management
+        let currentLanguage = 'en';
+        let currentTheme = 'light';
+        let openCategories = new Set();
+        let currentSliderValue = 5;
+
+        // Content Data Structure
+        const contentData = {
+            en: {
+                categories: [
+                    {
+                        id: 'psychological',
+                        icon: 'brain',
+                        title: 'Psychological Foundations',
+                        subtitle: 'Core cognitive biases that money triggers in our minds',
+                        count: 3,
+                        phenomena: [
+                            {
+                                id: 'loss_aversion',
+                                title: 'Loss Aversion',
+                                description: 'The fear of losing money feels twice as powerful as the joy of gaining the same amount. This fundamental asymmetry shapes nearly every financial decision we make.',
+                                earlySign: 'You avoid investment opportunities because you focus more on potential losses than gains. You keep large amounts in low-yield savings due to fear.',
+                                deepDive: {
+                                    subtitle: 'The cornerstone of behavioral economics',
+                                    sections: [
+                                        {
+                                            icon: 'microscope',
+                                            title: 'The Science Behind Loss Aversion',
+                                            content: 'Brain imaging studies show that losses activate the amygdala—our fear center—twice as strongly as equivalent gains activate reward centers. This isn\'t just preference; it\'s fundamental wiring that evolved when losing resources meant survival risk.'
+                                        },
+                                        {
+                                            icon: 'lightbulb',
+                                            title: 'Real-World Impact',
+                                            content: 'A person might refuse to sell a stock that dropped 20% because selling would "lock in" the loss, even when better opportunities exist. They might avoid job changes despite better prospects, focusing on leaving current benefits rather than gaining new ones.'
+                                        },
+                                        {
+                                            icon: 'target',
+                                            title: 'Recognition Strategy',
+                                            content: 'Before making financial decisions, list potential gains separately from potential losses. Notice if you spend more time thinking about what you might lose. Practice reframing: instead of "I might lose $1000," try "I might not gain $1000."'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'money_priming',
+                                title: 'Money Priming Effect',
+                                description: 'Simply thinking about money—even unconsciously—makes people more self-reliant, less cooperative, and less likely to help others. This happens within minutes of money exposure.',
+                                earlySign: 'After handling finances, you become less patient with people asking for help, prefer working alone, or feel less empathy toward others\' problems.',
+                                deepDive: {
+                                    subtitle: 'The invisible influence of money cues',
+                                    sections: [
+                                        {
+                                            icon: 'flask',
+                                            title: 'Surprising Research Findings',
+                                            content: 'Studies show people who handled Monopoly money or saw money screensavers helped others 34% less and preferred working alone. Even three-year-olds show reduced helping behavior after handling coins versus buttons.'
+                                        },
+                                        {
+                                            icon: 'globe',
+                                            title: 'Cultural Variations',
+                                            content: 'While universal, this effect varies by culture. Collectivistic societies show smaller money priming effects on cooperation, while individualistic cultures show stronger responses. Cultural values can modify the effect.'
+                                        },
+                                        {
+                                            icon: 'heart',
+                                            title: 'Relationship Impact',
+                                            content: 'Notice your mood after handling money, paying bills, or checking accounts. Do you become more self-focused and less interested in helping others? This awareness helps you consciously counteract the effect.'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'hedonic_adaptation',
+                                title: 'Hedonic Adaptation',
+                                description: 'Our happiness level returns to baseline despite material improvements. The yacht that once seemed like it would bring lasting joy becomes ordinary, creating endless cycles of wanting more.',
+                                earlySign: 'Recent purchases that initially excited you now feel normal. You find yourself constantly looking toward the next upgrade for happiness.',
+                                deepDive: {
+                                    subtitle: 'Why more money doesn\'t buy lasting happiness',
+                                    sections: [
+                                        {
+                                            icon: 'bar-chart',
+                                            title: 'The Happiness Research',
+                                            content: 'Lottery winners return to baseline happiness within 18 months. People earning $75,000 aren\'t significantly happier than those earning $50,000, but both predict they\'d be much happier earning $100,000. This prediction error drives endless striving.'
+                                        },
+                                        {
+                                            icon: 'refresh-cw',
+                                            title: 'Breaking the Cycle',
+                                            content: 'Research shows experiences provide more lasting happiness than possessions. Gratitude practices can reset hedonic adaptation. Spending money on others consistently produces more happiness than spending on oneself.'
+                                        },
+                                        {
+                                            icon: 'compass',
+                                            title: 'Finding Contentment',
+                                            content: 'Think of a significant purchase from the past year. How long did excitement last? What would it take to feel content with your current situation? Notice if you\'re always moving the happiness goalpost.'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        id: 'relational',
+                        icon: 'users',
+                        title: 'Relational Distortions',
+                        subtitle: 'How money changes the way we connect with others',
+                        count: 2,
+                        phenomena: [
+                            {
+                                id: 'transactional_thinking',
+                                title: 'Transactional Mindset',
+                                description: 'Relationships begin to be evaluated through cost-benefit analysis. You find yourself calculating what others contribute versus receive, turning human connection into unconscious accounting.',
+                                earlySign: 'You catch yourself thinking "What\'s in it for me?" when people ask favors, or feeling resentful when relationships feel unbalanced.',
+                                deepDive: {
+                                    subtitle: 'When relationships become balance sheets',
+                                    sections: [
+                                        {
+                                            icon: 'heart-crack',
+                                            title: 'The Relationship Cost',
+                                            content: 'Transactional thinking erodes intimacy because genuine love and friendship operate on unconditional giving rather than exchange. Applying market logic to relationships destroys the qualities that make them meaningful.'
+                                        },
+                                        {
+                                            icon: 'repeat',
+                                            title: 'The Reciprocity Trap',
+                                            content: 'Healthy relationships involve reciprocity, but transactional thinking makes it conscious and calculated rather than natural. This creates anxiety about "keeping score" and reduces spontaneous generosity.'
+                                        },
+                                        {
+                                            icon: 'heart-handshake',
+                                            title: 'Returning to Connection',
+                                            content: 'Notice when you\'re calculating relationship value. Practice unconditional giving in small ways. Remember that deepest satisfaction comes from forgetting what we\'re getting and focusing on what we can offer.'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'power_dynamics',
+                                title: 'Hidden Power Hierarchies',
+                                description: 'Money creates invisible status rankings that influence every interaction. Income differences generate subtle feelings of superiority, inferiority, or competition that poison authentic connection.',
+                                earlySign: 'You feel different around people based on perceived wealth—superior, inferior, or competitive. Financial status becomes a factor in evaluating people\'s worth.',
+                                deepDive: {
+                                    subtitle: 'The subtle violence of financial hierarchy',
+                                    sections: [
+                                        {
+                                            icon: 'scale',
+                                            title: 'Status and Self-Worth',
+                                            content: 'Income inequality within groups reduces trust, cooperation, and wellbeing for everyone—not just those with less money. Even wealthy individuals in unequal environments report lower life satisfaction.'
+                                        },
+                                        {
+                                            icon: 'handshake',
+                                            title: 'Authentic Equality',
+                                            content: 'True connection requires seeing beyond economic roles to recognize inherent worth. This doesn\'t mean ignoring practical differences, but not allowing them to determine fundamental respect.'
+                                        },
+                                        {
+                                            icon: 'compass',
+                                            title: 'Navigation Strategies',
+                                            content: 'Practice interacting without considering financial status. Notice money-based judgments. Cultivate relationships based on shared values, interests, and character rather than economic similarity.'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        id: 'cognitive',
+                        icon: 'puzzle',
+                        title: 'Cognitive Distortions',
+                        subtitle: 'Systematic errors in financial reasoning and decision-making',
+                        count: 2,
+                        phenomena: [
+                            {
+                                id: 'sunk_cost',
+                                title: 'Sunk Cost Fallacy',
+                                description: 'Past investments make us reluctant to change course, even when continuing no longer makes sense. We throw good money after bad because we cannot accept that previous spending was a mistake.',
+                                earlySign: 'You continue projects, relationships, or investments primarily because of how much you\'ve already invested, rather than their current merit.',
+                                deepDive: {
+                                    subtitle: 'Why we chase losses and resist change',
+                                    sections: [
+                                        {
+                                            icon: 'link',
+                                            title: 'Psychology of Commitment',
+                                            content: 'Sunk cost fallacy connects to our deep need for consistency and fear of admitting mistakes. It feels like betraying our past self to abandon something we previously valued, even when circumstances changed.'
+                                        },
+                                        {
+                                            icon: 'briefcase',
+                                            title: 'Business and Personal Costs',
+                                            content: 'This appears everywhere: staying in outgrown jobs, continuing education programs that no longer serve you, maintaining unused subscriptions. The emotional cost of "wasting" past investments keeps us trapped.'
+                                        },
+                                        {
+                                            icon: 'door-open',
+                                            title: 'Liberation Through Letting Go',
+                                            content: 'Make decisions based only on future value, not past investment. Ask: "If starting fresh today, would I choose this?" Honor past choices while giving yourself permission to evolve.'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'anchoring_bias',
+                                title: 'Anchoring Bias',
+                                description: 'The first piece of financial information we encounter heavily influences all subsequent decisions. Whether it\'s a salary negotiation or price comparison, we anchor to initial numbers.',
+                                earlySign: 'You judge prices based on first ones you see, struggle to negotiate far from initial offers, or feel "expensive" is relative to first reference point.',
+                                deepDive: {
+                                    subtitle: 'How first impressions control financial decisions',
+                                    sections: [
+                                        {
+                                            icon: 'anchor',
+                                            title: 'The Anchoring Effect',
+                                            content: 'Even random numbers influence our financial decisions. Studies show people asked if Gandhi died before or after age 144 subsequently guess higher death ages than those asked about age 35. This randomness affects salary negotiations, home prices, and investments.'
+                                        },
+                                        {
+                                            icon: 'trending-up',
+                                            title: 'Strategic Applications',
+                                            content: 'Savvy negotiators and salespeople exploit anchoring by presenting high initial numbers. Real estate agents show expensive houses first. Salary negotiators start with ambitious figures. Understanding this helps you recognize manipulation.'
+                                        },
+                                        {
+                                            icon: 'shield',
+                                            title: 'Defense Strategies',
+                                            content: 'Research fair market values before negotiations. Set your own anchor first when possible. Consciously consider multiple reference points. Ask yourself: "What would I think this was worth if I hadn\'t heard that first number?"'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        id: 'spiritual',
+                        icon: 'sparkles',
+                        title: 'Spiritual Distortions',
+                        subtitle: 'How money affects our deepest sense of meaning and purpose',
+                        count: 2,
+                        phenomena: [
+                            {
+                                id: 'soul_substitution',
+                                title: 'Soul Substitution',
+                                description: 'Financial security becomes a substitute for emotional wholeness and spiritual connection. We unconsciously believe enough money will provide safety, love, and meaning that can only come from within.',
+                                earlySign: 'You feel genuinely secure only when finances are stable. Financial stress creates existential anxiety rather than practical concern. Spiritual practices decrease when money is abundant.',
+                                deepDive: {
+                                    subtitle: 'When money becomes a false god',
+                                    sections: [
+                                        {
+                                            icon: 'church',
+                                            title: 'The Sacred and Financial',
+                                            content: 'Money promises what religion traditionally offered: security, power, freedom from suffering, and social acceptance. When money becomes our primary source of these needs, we lose connection to deeper meaning and resilience.'
+                                        },
+                                        {
+                                            icon: 'heart-crack',
+                                            title: 'The Emptiness Problem',
+                                            content: 'No amount of money fills the void left by disconnection from purpose, community, or transcendent meaning. Yet culture prescribes financial success as the cure for existential problems, creating endless striving without satisfaction.'
+                                        },
+                                        {
+                                            icon: 'mountain',
+                                            title: 'Reclaiming the Sacred',
+                                            content: 'Notice when using money to avoid deeper emotional or spiritual work. Cultivate sources of security independent of external circumstances: meditation, community, creative expression, service to others.'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'abundance_scarcity',
+                                title: 'Abundance vs Scarcity Mindset',
+                                description: 'Our fundamental belief about whether there\'s "enough" in the world shapes every financial decision. Scarcity mindset creates hoarding, competition, and fear-based choices even when resources are plentiful.',
+                                earlySign: 'You hoard resources "just in case," feel anxious when others succeed financially, or make decisions primarily from fear of not having enough.',
+                                deepDive: {
+                                    subtitle: 'The lens that colors all financial perception',
+                                    sections: [
+                                        {
+                                            icon: 'pie-chart',
+                                            title: 'Zero-Sum Thinking',
+                                            content: 'Scarcity mindset treats wealth like a pie—if someone else gets more, there\'s less for you. This creates competition, envy, and hoarding. Abundance mindset recognizes wealth can be created, leading to collaboration and generosity.'
+                                        },
+                                        {
+                                            icon: 'seedling',
+                                            title: 'Origins of Mindset',
+                                            content: 'These mindsets often form in childhood based on family financial stress, cultural messages, or personal experiences of lack. They become unconscious lenses through which we interpret all financial situations.'
+                                        },
+                                        {
+                                            icon: 'sunrise',
+                                            title: 'Cultivating Abundance',
+                                            content: 'Practice gratitude for what you have. Notice and celebrate others\' success without comparison. Focus on creating value rather than just acquiring resources. Remember that generosity often creates more abundance, not less.'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        id: 'cultural',
+                        icon: 'globe',
+                        title: 'Cultural Programming',
+                        subtitle: 'Societal messages that unconsciously shape our money beliefs',
+                        count: 3,
+                        phenomena: [
+                            {
+                                id: 'meritocracy_myth',
+                                title: 'The Meritocracy Myth',
+                                description: 'The belief that financial success directly reflects personal worth and effort leads to judgment of both self and others. This myth ignores systemic advantages, luck, and inherited circumstances.',
+                                earlySign: 'You judge people\'s character by financial success, assume poor people lack willpower, or feel your worth depends on economic achievements.',
+                                deepDive: {
+                                    subtitle: 'Unpacking the fiction of "deserved" wealth',
+                                    sections: [
+                                        {
+                                            icon: 'target',
+                                            title: 'The Just-World Fallacy',
+                                            content: 'Believing wealth indicates virtue helps us feel the world is fair and predictable. However, research shows factors like birth location, family income, race, and random events play enormous roles in financial outcomes.'
+                                        },
+                                        {
+                                            icon: 'heart',
+                                            title: 'Compassionate Realism',
+                                            content: 'Recognizing luck and privilege doesn\'t diminish personal responsibility—it adds compassion. We can work hard and make good choices while acknowledging outcomes depend on many factors beyond our control.'
+                                        },
+                                        {
+                                            icon: 'balance-scale',
+                                            title: 'Justice and Opportunity',
+                                            content: 'Consider how your attitudes about wealth and poverty affect support for social policies. How might recognizing systemic factors change your political views or charitable giving patterns?'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'consumer_identity',
+                                title: 'Consumer Identity Formation',
+                                description: 'We increasingly define ourselves through what we buy rather than what we do or believe. Purchases become identity statements, creating anxiety about "authentic" choices and social positioning.',
+                                earlySign: 'You worry about what purchases say about you, feel anxious about having "wrong" brands, or define personality through consumer choices.',
+                                deepDive: {
+                                    subtitle: 'When shopping becomes self-expression',
+                                    sections: [
+                                        {
+                                            icon: 'user',
+                                            title: 'Identity Through Objects',
+                                            content: 'Marketing has successfully convinced us that products express our inner selves. We buy not just for function but for the identity we think products confer: adventurous, sophisticated, rebellious, or successful.'
+                                        },
+                                        {
+                                            icon: 'mirror',
+                                            title: 'The Authenticity Paradox',
+                                            content: 'Trying to express authenticity through consumption creates a paradox—we become inauthentic by outsourcing self-expression to corporations. True authenticity comes from actions, relationships, and values, not purchases.'
+                                        },
+                                        {
+                                            icon: 'compass',
+                                            title: 'Reclaiming Identity',
+                                            content: 'Notice when making purchases for identity reasons versus practical needs. Ask: "Who am I when I\'m not buying anything?" Cultivate identity through experiences, relationships, skills, and contributions rather than consumption.'
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                id: 'financial_shame',
+                                title: 'Financial Shame Culture',
+                                description: 'Society attaches moral judgment to financial situations, creating shame around money struggles. This shame prevents seeking help, honest conversations, and learning from mistakes.',
+                                earlySign: 'You hide financial struggles from friends/family, feel ashamed about money mistakes, or judge others for their financial choices.',
+                                deepDive: {
+                                    subtitle: 'Breaking the silence around money struggles',
+                                    sections: [
+                                        {
+                                            icon: 'eye-off',
+                                            title: 'The Hidden Struggle',
+                                            content: 'Financial shame operates in shadows. People fake prosperity, hide debt, and suffer alone rather than seek support. This isolation makes financial problems worse and prevents learning from others\' experiences.'
+                                        },
+                                        {
+                                            icon: 'users',
+                                            title: 'Breaking the Taboo',
+                                            content: 'Money remains one of the last taboo topics in many cultures. Open, honest conversations about financial challenges can reduce shame and create supportive communities for learning and growth.'
+                                        },
+                                        {
+                                            icon: 'sunrise',
+                                            title: 'Healing Through Connection',
+                                            content: 'Practice sharing appropriate financial struggles with trusted people. Offer non-judgmental support to others. Remember that financial difficulties are often systemic, not personal moral failings.'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            hi: {
+                categories: [
+                    {
+                        id: 'psychological',
+                        icon: 'brain',
+                        title: 'मनोवैज्ञानिक आधार',
+                        subtitle: 'मूलभूत संज्ञानात्मक पूर्वाग्रह जो पैसा हमारे दिमाग में ट्रिगर करता है',
+                        count: 3,
+                        phenomena: [
+                            {
+                                id: 'loss_aversion',
+                                title: 'हानि से बचाव',
+                                description: 'पैसा खोने का डर उसी मात्रा को पाने की खुशी से दोगुना शक्तिशाली लगता है। यह मौलिक असंतुलन हमारे लगभग हर वित्तीय निर्णय को आकार देता है।',
+                                earlySign: 'आप निवेश के अवसरों से बचते हैं क्योंकि आप लाभ की बजाय संभावित नुकसान पर अधिक ध्यान देते हैं। डर के कारण आप बड़ी मात्रा में पैसा कम ब्याज वाले बचत खातों में रखते हैं।',
+                                deepDive: {
+                                    subtitle: 'व्यवहारिक अर्थशास्त्र की आधारशिला',
+                                    sections: [
+                                        {
+                                            icon: 'microscope',
+                                            title: 'हानि से बचाव के पीछे का विज्ञान',
+                                            content: 'मस्तिष्क इमेजिंग अध्ययन दिखाते हैं कि नुकसान हमारे डर केंद्र—एमिग्डाला को समान लाभ की तुलना में दोगुना सक्रिय करता है। यह सिर्फ प्राथमिकता नहीं है; यह मौलिक तारों का पैटर्न है।'
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Initialize Application
+        function initializeApp() {
+            renderContent();
+            updateProgress();
+            initializeLucideIcons();
+            
+            // Add event listeners
+            document.addEventListener('keydown', handleKeyNavigation);
+            document.getElementById('modalOverlay').addEventListener('click', handleModalClick);
+        }
+
+        // Render Main Content
+        function renderContent() {
+            const content = document.getElementById('content');
+            const data = contentData[currentLanguage];
+            
+            content.innerHTML = data.categories.map(category => `
+                <article class="category ${openCategories.has(category.id) ? 'open' : ''}" id="category-${category.id}">
+                    <header class="category-header" onclick="toggleCategory('${category.id}')" role="button" tabindex="0" aria-expanded="${openCategories.has(category.id)}">
+                        <div class="category-info">
+                            <div class="category-icon">
+                                <i data-lucide="${category.icon}"></i>
+                            </div>
+                            <div class="category-text">
+                                <h2 class="category-title">${category.title}</h2>
+                                <p class="category-subtitle">${category.subtitle}</p>
+                            </div>
+                        </div>
+                        <div class="category-meta">
+                            <span>${category.count} phenomena</span>
+                            <div class="category-toggle">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="category-content">
+                        <div class="phenomena-grid">
+                            ${category.phenomena.map(phenomenon => `
+                                <div class="phenomenon-card" onclick="openModal('${phenomenon.id}')" role="button" tabindex="0">
+                                    <div class="phenomenon-header">
+                                        <h3 class="phenomenon-title">${phenomenon.title}</h3>
+                                        <div class="phenomenon-indicator">
+                                            <i data-lucide="info"></i>
+                                        </div>
+                                    </div>
+                                    <p class="phenomenon-description">${phenomenon.description}</p>
+                                    <div class="early-warning">
+                                        <div class="early-warning-header">
+                                            <i data-lucide="alert-triangle"></i>
+                                            <span>Early Warning Signs</span>
+                                        </div>
+                                        <p class="early-warning-content">${phenomenon.earlySign}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+            
+            initializeLucideIcons();
+        }
+
+        // Toggle Category
+        function toggleCategory(categoryId) {
+            const category = document.getElementById(`category-${categoryId}`);
+            const isOpen = openCategories.has(categoryId);
+            
+            if (isOpen) {
+                category.classList.remove('open');
+                openCategories.delete(categoryId);
+            } else {
+                category.classList.add('open');
+                openCategories.add(categoryId);
+            }
+            
+            // Update ARIA attribute
+            const header = category.querySelector('.category-header');
+            header.setAttribute('aria-expanded', !isOpen);
+            
+            updateProgress();
+        }
+
+        // Open Modal
+        function openModal(phenomenonId) {
+            const data = contentData[currentLanguage];
+            const phenomenon = findPhenomenon(data, phenomenonId);
+            
+            if (!phenomenon || !phenomenon.deepDive) return;
+            
+            document.getElementById('modalTitle').textContent = phenomenon.title;
+            document.getElementById('modalSubtitle').textContent = phenomenon.deepDive.subtitle;
+            
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="insight-section">
+                    <div class="insight-header">
+                        <div class="insight-icon">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <h3 class="insight-title">Core Understanding</h3>
+                    </div>
+                    <div class="insight-content">${phenomenon.description}</div>
+                </div>
+                
+                ${phenomenon.deepDive.sections.map(section => `
+                    <div class="insight-section">
+                        <div class="insight-header">
+                            <div class="insight-icon">
+                                <i data-lucide="${section.icon}"></i>
+                            </div>
+                            <h3 class="insight-title">${section.title}</h3>
+                        </div>
+                        <div class="insight-content">${section.content}</div>
+                    </div>
+                `).join('')}
+                
+                <div class="reflection-box">
+                    <div class="reflection-header">
+                        <i data-lucide="lightbulb"></i>
+                        <h3 class="reflection-title">Personal Reflection</h3>
+                    </div>
+                    <p>How does this phenomenon show up in your own life? What patterns do you recognize in your behavior and decisions?</p>
+                </div>
+                
+                <div class="self-assessment">
+                    <h4 class="assessment-title">Self-Assessment: How much does this affect you?</h4>
+                    <div class="slider-container">
+                        <input type="range" class="slider" min="1" max="10" value="5" 
+                               oninput="updateSliderValue(this.value)" id="assessmentSlider">
+                        <div class="slider-labels">
+                            <span>Not at all</span>
+                            <span>Extremely</span>
+                        </div>
+                        <div class="slider-value" id="sliderValue">Moderate (5/10)</div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            initializeLucideIcons();
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle Modal Click Outside
+        function handleModalClick(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        // Find Phenomenon
+        function findPhenomenon(data, id) {
+            for (const category of data.categories) {
+                const phenomenon = category.phenomena.find(p => p.id === id);
+                if (phenomenon) return phenomenon;
+            }
+            return null;
+        }
+
+        // Update Slider Value
+        function updateSliderValue(value) {
+            const labels = ['Minimal', 'Very Low', 'Low', 'Moderate-Low', 'Moderate', 
+                           'Moderate-High', 'High', 'Very High', 'Extremely High', 'Maximum'];
+            const label = labels[value - 1] || 'Moderate';
+            document.getElementById('sliderValue').textContent = `${label} (${value}/10)`;
+            currentSliderValue = value;
+        }
+
+        // Toggle Language
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            document.getElementById('langText').textContent = currentLanguage === 'en' ? 'हिन्दी' : 'English';
+            renderContent();
+        }
+
+        // Toggle Theme
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.body.setAttribute('data-theme', currentTheme);
+            
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            
+            if (currentTheme === 'dark') {
+                themeIcon.setAttribute('data-lucide', 'sun');
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+                themeText.textContent = 'Dark';
+            }
+            
+            initializeLucideIcons();
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const totalCategories = contentData[currentLanguage].categories.length;
+            const openCategoriesCount = openCategories.size;
+            const progress = (openCategoriesCount / totalCategories) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+        }
+
+        // Handle Keyboard Navigation
+        function handleKeyNavigation(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // Initialize Lucide Icons
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
+
+<!-- 
+Date created: January 8, 2025
+Tool name: Claude Sonnet 4
+Prompt used to generate the code: dress up the application from one of the best and minimal icon resources. rewrite the application from scratch again in artifact
+
+README.md:
+# The Hidden Psychology of Money - Enhanced Interactive Learning Platform
+
+## Purpose
+A comprehensive, research-backed educational web application that explores the unconscious psychological effects of money on human behavior, relationships, and decision-making. Built with modern UX principles and enhanced with Lucide icons for superior visual communication and accessibility.
+
+## Key Features & Enhancements
+
+### Visual Design & User Experience
+- **Modern Design System**: Clean, professional interface with carefully crafted color palette and typography
+- **Lucide Icons Integration**: Premium, consistent iconography throughout the interface for better visual hierarchy and user understanding
+- **Responsive Design**: Seamless experience across all devices with touch-friendly interactions
+- **Dark/Light Theme**: User preference accommodation with smooth theme transitions
+- **Progress Tracking**: Visual progress indicators to encourage exploration and completion
+
+### Content Architecture
+The application organizes money psychology research into five comprehensive categories:
+
+#### 1. **Psychological Foundations** 🧠
+- **Loss Aversion**: How fear of losing money affects decision-making
+- **Money Priming Effect**: Unconscious influence of money cues on behavior
+- **Hedonic Adaptation**: Why more money doesn't bring lasting happiness
+
+#### 2. **Relational Distortions** 👥
+- **Transactional Mindset**: When relationships become cost-benefit analysis
+- **Hidden Power Hierarchies**: How money creates invisible social rankings
+
+#### 3. **Cognitive Distortions** 🧩
+- **Sunk Cost Fallacy**: Why we throw good money after bad
+- **Anchoring Bias**: How first numbers control all subsequent decisions
+
+#### 4. **Spiritual Distortions** ✨
+- **Soul Substitution**: When money becomes a substitute for inner wholeness
+- **Abundance vs Scarcity Mindset**: How fundamental beliefs shape financial behavior
+
+#### 5. **Cultural Programming** 🌍
+- **Meritocracy Myth**: The false belief that wealth equals worth
+- **Consumer Identity Formation**: How purchases become self-expression
+- **Financial Shame Culture**: Breaking the silence around money struggles
+
+### Interactive Learning Features
+- **Expandable Categories**: Progressive disclosure prevents cognitive overload
+- **Detailed Modal Windows**: Deep-dive exploration with scientific backing
+- **Self-Assessment Tools**: Interactive sliders for personal reflection
+- **Early Warning Signs**: Practical recognition patterns for each phenomenon
+- **Cultural Sensitivity**: Bilingual support with culturally appropriate content
+
+### Technical Implementation
+- **Performance Optimized**: Vanilla JavaScript for maximum speed and compatibility
+- **Accessibility First**: Full keyboard navigation, ARIA labels, screen reader support
+- **Modern CSS**: Custom properties, Grid/Flexbox layouts, smooth animations
+- **Icon System**: Lucide icons via CDN for crisp, scalable vector graphics
+- **Progressive Enhancement**: Core functionality works without JavaScript
+
+### Educational Methodology
+- **Research-Based Content**: Over 165+ peer-reviewed studies referenced
+- **Practical Application**: Real-world examples and scenarios
+- **Non-Judgmental Approach**: Compassionate framing acknowledges money's emotional complexity
+- **Action-Oriented**: Each section includes recognition strategies and positive change tools
+- **Self-Reflection Integration**: Personal assessment and reflection prompts
+
+### User Interface Enhancements
+- **Visual Hierarchy**: Clear information architecture with consistent spacing
+- **Micro-Interactions**: Subtle animations and hover effects for better engagement
+- **Loading States**: Smooth transitions and progressive content revelation
+- **Touch-Friendly**: Mobile-optimized interactions with appropriate touch targets
+- **Color Psychology**: Thoughtful color choices that support learning and reduce cognitive load
+
+### Accessibility Features
+- **Keyboard Navigation**: Full app functionality via keyboard
+- **Screen Reader Support**: Proper semantic HTML and ARIA attributes
+- **Focus Management**: Clear focus indicators and logical tab order
+- **Color Contrast**: WCAG compliant color ratios for text and backgrounds
+- **Reduced Motion**: Respects user preferences for animation
+
+## Target Audience
+- **General Users**: Anyone seeking to understand their relationship with money
+- **Mental Health Professionals**: Therapists and counselors working with financial anxiety
+- **Educators**: Psychology and economics teachers needing engaging materials
+- **Financial Advisors**: Professionals wanting deeper client psychology insights
+- **Researchers**: Academics studying behavioral economics and social psychology
+
+## Future Enhancement Opportunities
+- **Personalized Learning Paths**: Adaptive content based on user responses
+- **Community Features**: Discussion forums and shared reflection spaces
+- **Professional Resources**: Therapist tools and client assessment features
+- **Extended Cultural Perspectives**: Additional languages and cultural contexts
+- **Mobile App Version**: Native mobile application with offline capabilities
+
+This platform represents a new paradigm in financial education—one that acknowledges money's profound psychological influence and provides evidence-based tools for developing a conscious, healthy relationship with wealth and resources.
+-->
