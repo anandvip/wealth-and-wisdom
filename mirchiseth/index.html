@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seth Material - Reality Creation Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2c2c2c;
+            --accent-color: #ff6b35;
+            --text-light: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --background-dark: #0f0f0f;
+            --border-color: #333;
+            --highlight-color: #ffd700;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            width: 350px;
+            background: var(--secondary-color);
+            border-right: 2px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(135deg, var(--accent-color), #ff8560);
+        }
+
+        .sidebar-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            margin: 0.5rem 0;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            background: var(--primary-color);
+            border-left-color: var(--accent-color);
+            color: var(--highlight-color);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background: var(--primary-color);
+            border-left-color: var(--accent-color);
+            color: var(--highlight-color);
+            font-weight: 500;
+        }
+
+        .nav-section {
+            margin: 1.5rem 0;
+        }
+
+        .nav-section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 350px;
+            flex: 1;
+            padding: 2rem 3rem;
+            max-width: calc(100% - 350px);
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, var(--highlight-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .main-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .protocol-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--highlight-color);
+            margin: 2rem 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-left: 4px solid var(--highlight-color);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-text strong {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--highlight-color);
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--highlight-color);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .protocol-steps {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .step {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        /* Balance and Warning Elements */
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b35, #ff8560);
+            color: white;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff4444;
+            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+        }
+
+        .warning-icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .balance-note {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--highlight-color);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid var(--highlight-color);
+        }
+
+        .balance-note .balance-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: var(--highlight-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .reality-check {
+            background: var(--secondary-color);
+            border: 1px solid #4a9eff;
+            border-left: 4px solid #4a9eff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+        }
+
+        .reality-check .check-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            color: #4a9eff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .check-questions {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-questions li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .check-questions li:before {
+            content: "🤔";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .margin-note {
+            background: rgba(255, 215, 0, 0.05);
+            border-left: 3px solid var(--highlight-color);
+            margin: 1rem 0;
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .safeguard-tip {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .safeguard-tip .tip-icon {
+            color: #4a9eff;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 300px;
+            }
+            .main-content {
+                margin-left: 300px;
+                max-width: calc(100% - 300px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                width: 300px;
+                position: fixed;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+                box-shadow: 2px 0 20px rgba(0,0,0,0.5);
+            }
+            
+            .sidebar.open .nav-link {
+                animation: slideInNav 0.3s ease forwards;
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            
+            .sidebar.open .nav-link:nth-child(1) { animation-delay: 0.05s; }
+            .sidebar.open .nav-link:nth-child(2) { animation-delay: 0.1s; }
+            .sidebar.open .nav-link:nth-child(3) { animation-delay: 0.15s; }
+            .sidebar.open .nav-link:nth-child(4) { animation-delay: 0.2s; }
+            .sidebar.open .nav-link:nth-child(5) { animation-delay: 0.25s; }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+                padding: 4rem 1.5rem 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .protocol-title {
+                font-size: 1.5rem;
+                padding: 0.8rem;
+            }
+            
+            .highlight-box, .warning-box, .balance-note, .reality-check {
+                margin: 1.5rem 0;
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .check-questions li {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+        }
+
+        @keyframes slideInNav {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent-color);
+            border: 0.5px solid var(--accent-color);
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.8),
+                         0 0 12px rgba(255, 107, 53, 0.6),
+                         0 0 16px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+            transition: all 0.3s ease;
+            width: 48px;
+            height: 48px;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(255, 107, 53, 0.2);
+            border-color: #ff8560;
+            transform: scale(1.05);
+            text-shadow: 0 0 12px rgba(255, 107, 53, 1),
+                         0 0 16px rgba(255, 107, 53, 0.8),
+                         0 0 20px rgba(255, 107, 53, 0.6);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .mobile-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .mobile-toggle.open {
+            background: transparent;
+            border: 0.5px solid #000000;
+            color: var(--accent-color);
+            transform: rotate(90deg);
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.9),
+                         0 0 14px rgba(255, 107, 53, 0.7),
+                         0 0 18px rgba(255, 107, 53, 0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hide mobile toggle on larger screens */
+        @media (min-width: 901px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile overlay */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-overlay.active {
+                display: block;
+                opacity: 1;
+            }
+            
+            .progress-bar {
+                left: 0;
+                width: 100%;
+                top: 80px; /* Account for mobile toggle button */
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 350px;
+            width: calc(100% - 350px);
+            height: 3px;
+            background: var(--accent-color);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .progress-bar {
+                left: 0;
+                width: 100%;
+                top: 80px; /* Account for mobile toggle button */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">Seth Material</h1>
+                <p class="sidebar-subtitle">Reality Creation Manual</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-section-title">Foundation</div>
+                    <div class="nav-item"><a href="#introduction" class="nav-link">Introduction</a></div>
+                    <div class="nav-item"><a href="#shattering-truth" class="nav-link">The Shattering Truth</a></div>
+                    <div class="nav-item"><a href="#architecture-lie" class="nav-link">Architecture of the Lie</a></div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Protocols</div>
+                    <div class="nav-item"><a href="#protocol-1" class="nav-link">Protocol #1 - Blank Slate</a></div>
+                    <div class="nav-item"><a href="#time-illusion" class="nav-link">Illusion of Time</a></div>
+                    <div class="nav-item"><a href="#protocol-2" class="nav-link">Protocol #2 - Power Anchor</a></div>
+                    <div class="nav-item"><a href="#protocol-3" class="nav-link">Protocol #3 - Time Healing</a></div>
+                    <div class="nav-item"><a href="#protocol-4" class="nav-link">Protocol #4 - Quantum Download</a></div>
+                    <div class="nav-item"><a href="#protocol-5" class="nav-link">Protocol #5 - Time Expansion</a></div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Advanced Concepts</div>
+                    <div class="nav-item"><a href="#revision" class="nav-link">The Ultimate Weapon</a></div>
+                    <div class="nav-item"><a href="#probable-selves" class="nav-link">Probable Selves</a></div>
+                    <div class="nav-item"><a href="#coordinate-points" class="nav-link">Coordinate Points</a></div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Truth Revelations</div>
+                    <div class="nav-item"><a href="#truth-god" class="nav-link">Truth of God</a></div>
+                    <div class="nav-item"><a href="#truth-soul" class="nav-link">Truth of Soul</a></div>
+                    <div class="nav-item"><a href="#truth-evil" class="nav-link">Truth of Evil</a></div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Balanced Practice</div>
+                    <div class="nav-item"><a href="#critical-thinking" class="nav-link">Critical Thinking Guide</a></div>
+                    <div class="nav-item"><a href="#reality-checks" class="nav-link">Reality Check Questions</a></div>
+                    <div class="nav-item"><a href="#integration" class="nav-link">Healthy Integration</a></div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Graduation</div>
+                    <div class="nav-item"><a href="#declaration" class="nav-link">Declaration of Sovereignty</a></div>
+                    <div class="nav-item"><a href="#call-to-action" class="nav-link">Call to Action</a></div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="main-title">Seth Material</h1>
+                <p class="main-subtitle">The Forbidden Manual for Reality Creation</p>
+            </div>
+            
+            <section id="introduction" class="section fade-in">
+                <h2 class="section-title">Introduction</h2>
+                
+                <div class="warning-box">
+                    <span class="warning-icon">⚠️</span><strong>Reader Advisory:</strong> This material contains powerful ideas that can be genuinely helpful when used as tools, not absolute truths. Stay alert to dogmatic thinking patterns, maintain your critical faculties, and remember that empowering philosophies can become limiting if followed without discernment.
+                </div>
+                
+                <div class="content-text">
+                    What if I told you that a so-called ordinary woman channeled a voice that didn't just predict the future, but spoke fluent ancient Greek she'd never studied, revealed classified CIA operations years before they became public. And every word was documented, tested, and never once proven false.
+                </div>
+                <div class="margin-note">
+                    <strong>Critical Note:</strong> These extraordinary claims about Jane Roberts/Seth deserve verification. While many find value in the teachings, extraordinary claims require extraordinary evidence. Approach with both openness and healthy skepticism.
+                </div>
+                <div class="content-text">
+                    That's exactly what happened in the 1960s. Jane Roberts, a complete skeptic, began channeling a presence called Seth. In front of experts, Seth delivered impossible predictions that later came true and revealed details Jane couldn't have possibly known.
+                </div>
+                <div class="highlight-box">
+                    <strong>Key Point:</strong> Seth didn't just shatter science. He shattered the most basic truths about existence. Everything you experience—God, your soul, time, and reality itself—isn't happening out there. It's being created from within you moment by moment.
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Balanced Perspective</div>
+                    <div class="content-text">
+                        Consider this as <em>one valuable lens</em> rather than the ultimate truth. You likely influence your reality significantly, <em>and</em> external factors, other people's choices, and chance also play important roles. Both perspectives can coexist helpfully.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="shattering-truth" class="section fade-in">
+                <h2 class="section-title">The Shattering Truth</h2>
+                <div class="content-text">
+                    Let's cut through the noise. The life you're living is a projection. The room you're in, the body you inhabit, the money in your bank account—it's all a movie being beamed from the most powerful device in the universe: <strong>your consciousness</strong>.
+                </div>
+                <div class="quote">
+                    "You create your own reality. There are no exceptions."
+                </div>
+                
+                <div class="margin-note">
+                    <strong>🚨 Self-Sealing Alert:</strong> Notice the absolute language: "no exceptions." This type of statement can make the theory unfalsifiable—if something doesn't work, it becomes your fault rather than a limitation of the model.
+                </div>
+                
+                <div class="content-text">
+                    This is not a feel-good platitude. It's the literal physics of existence. You've been sold a grand lie, the greatest deception in human history, that the physical world is primary and that your mind is just a byproduct of your brain—that matter creates consciousness.
+                </div>
+                <div class="content-text">
+                    <strong>The truth is the exact opposite.</strong> Consciousness creates matter. You don't have thoughts because you have a brain. You have a brain because consciousness chose to manifest one as a tool to experience this physical dimension.
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Both/And Perspective</div>
+                    <div class="content-text">
+                        Modern neuroscience shows complex bidirectional relationships between mind and brain. Rather than "consciousness creates everything" OR "matter creates everything," consider: consciousness and physical reality likely co-create each other in ways we're still discovering.
+                    </div>
+                </div>
+                
+                <div class="reality-check">
+                    <div class="check-title">🔍 Reality Check Questions</div>
+                    <ul class="check-questions">
+                        <li>Can I test this belief with small, specific experiments?</li>
+                        <li>What evidence would I accept as disconfirming this idea?</li>
+                        <li>Am I using this to feel empowered, or to avoid dealing with practical challenges?</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="architecture-lie" class="section fade-in">
+                <h2 class="section-title">The Architecture of the Lie</h2>
+                <div class="content-text">
+                    Your prison has no walls and no bars. Yet, it is the most effective containment system ever designed. It is a cage built entirely of beliefs—beliefs that were installed in your subconscious before you had the capacity to question them.
+                </div>
+                <div class="content-text">
+                    From the moment you were born, you were programmed. Society, your parents, your education—they handed you a script. And this script was infected with a psychic virus, a code of limitation designed to keep you manageable, predictable, and powerless.
+                </div>
+                <div class="highlight-box">
+                    <strong>Examples of Programming:</strong>
+                    <br>• "Money is the root of all evil" — designed to make you fear abundance
+                    <br>• "Don't get your hopes up" — a command to preemptively surrender
+                    <br>• These aren't harmless sayings. They are commands. They are invisible chains.
+                </div>
+            </section>
+            
+            <section id="protocol-1" class="section fade-in">
+                <h3 class="protocol-title">Forbidden Protocol #1 — The Blank Slate Meditation</h3>
+                
+                <div class="safeguard-tip">
+                    <span class="tip-icon">🛡️</span><strong>Practice Safely:</strong> This meditation can be profoundly liberating, but approach it as conscious exploration rather than identity erasure. Your history and experiences are part of your wisdom—this practice helps you see beyond limiting labels, not deny your authentic story.
+                </div>
+                
+                <div class="protocol-steps">
+                    <div class="content-text">
+                        This practice is designed to give you a momentary escape from the simulation—to wipe your mind clear of the roles, labels, and beliefs that have been tattooed onto your consciousness.
+                    </div>
+                    <div class="step">
+                        <strong>Step 1:</strong> Sit comfortably in a quiet space where you will not be disturbed. Breathe deeply.
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Systematically erase every label you have ever identified with. Imagine your name dissolving into dust.
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Erase your gender, age, profession, past, memories, successes, and failures. Erase even the label of human.
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Become nothing but pure, unadulterated awareness—a blank slate, a point of consciousness without a history.
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> From this state of pure potential, ask: "If I could create myself from scratch right now, who would I choose to be?"
+                    </div>
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Integration Wisdom</div>
+                    <div class="content-text">
+                        After this meditation, gently return to your full identity. The goal isn't to permanently erase your history, but to gain perspective on which aspects serve you and which might be ready for conscious evolution. Honor both your potential and your authentic experience.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="time-illusion" class="section fade-in">
+                <h2 class="section-title">The Illusion of Time and the Trap of the Past</h2>
+                <div class="content-text">
+                    Before you can build a new future, you must sever the chains that bind you to your past. The most rigid and powerful rule in the script you've been handed is the belief that the past is fixed, unchangeable, and forever behind you.
+                </div>
+                <div class="quote">
+                    "Time is not a one-way street. It is a framework of perception—a psychological construct that allows your consciousness to process experiences in an orderly fashion within this physical reality."
+                </div>
+                <div class="content-text">
+                    From the true perspective of your multi-dimensional self, all time exists in a spacious eternal now. Your past, your present, and your future are all happening at once.
+                </div>
+            </section>
+            
+            <section id="protocol-2" class="section fade-in">
+                <h3 class="protocol-title">Protocol 2 — The Power Anchor</h3>
+                <div class="protocol-steps">
+                    <div class="content-text">
+                        Several times a day, when you feel anxiety creeping in, when you catch your mind drifting to a past mistake, you are to stop—halt everything—and declare with the force of a thunderclap in your mind:
+                    </div>
+                    
+                    <div class="margin-note">
+                        <strong>⚠️ Thought-Stopper Alert:</strong> Commands like "halt everything" can be helpful for mindfulness, but avoid using them to suppress necessary emotions or thoughts that need processing.
+                    </div>
+                    
+                    <div class="quote">
+                        "My point of power is now."
+                    </div>
+                    <div class="content-text">
+                        Do not just say the words—<strong>feel them</strong>. Feel the entirety of your awareness being pulled from the phantoms of past and future and concentrated into the razor's edge of the present.
+                    </div>
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Mindful Approach</div>
+                    <div class="content-text">
+                        Use this practice as grounding, not avoidance. Instead of "stopping" difficult thoughts entirely, try: "I notice this thought/feeling. My power is in how I choose to respond to it now." This honors both presence and emotional intelligence.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="revision" class="section fade-in">
+                <h2 class="section-title">The Ultimate Weapon — Revision</h2>
+                <div class="content-text">
+                    This is the technique that makes the system tremble. The belief in a fixed past is the foundation of guilt, trauma, and karmic debt—the heaviest chains that anchor the human spirit. Seth gives you the power to shatter them.
+                </div>
+                <div class="content-text">
+                    Because all time is simultaneous, the past is a living memory that you are energizing with your focus right now. Therefore, you can change its energetic structure. You can rewrite the code.
+                </div>
+            </section>
+            
+            <section id="protocol-3" class="section fade-in">
+                <h3 class="protocol-title">Protocol 3 — The Time Healing Directive</h3>
+                
+                <div class="warning-box">
+                    <span class="warning-icon">⚠️</span><strong>Memory Work Caution:</strong> This visualization technique can be helpful for shifting emotional patterns, but should not replace processing difficult experiences. For trauma, consider working with a qualified therapist alongside these practices.
+                </div>
+                
+                <div class="protocol-steps">
+                    <div class="content-text">
+                        This is a <s>non-negotiable</s> powerful nightly practice. Before sleep, you will review your day, but you will do so in reverse—from evening back to morning.
+                    </div>
+                    
+                    <div class="margin-note">
+                        <strong>Language Alert:</strong> Notice the original "non-negotiable" command language. Consider: "This can be a valuable nightly practice" instead of absolute imperatives.
+                    </div>
+                    
+                    <div class="step">
+                        <strong>Step 1:</strong> Review your day in reverse chronological order
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> When you encounter an event with negative charge—pause mindfully
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> In your imagination, visualize that scene with your desired outcome
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Feel the triumphant emotions of the new version with every cell of your being
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> Allow this positive energy to become your dominant feeling about the situation
+                    </div>
+                </div>
+                
+                <div class="safeguard-tip">
+                    <span class="tip-icon">🛡️</span><strong>Healthy Boundaries:</strong> Use this as emotional reframing, not historical revision. The goal is shifting your energy around events, not creating false memories or avoiding necessary learning from difficult experiences.
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Both/And Approach</div>
+                    <div class="content-text">
+                        Honor both the wisdom in your actual experiences <em>and</em> your power to choose empowering meanings. You can acknowledge what happened while choosing how to carry it forward. This isn't denial—it's conscious emotional curation.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="probable-selves" class="section fade-in">
+                <h2 class="section-title">Assembling Your Legion — Commanding Your Probable Selves</h2>
+                <div class="content-text">
+                    Prepare to have your concept of self completely shattered. You believe you are one person living one life. This is a kindergarten-level understanding of your own magnificent existence.
+                </div>
+                <div class="content-text">
+                    <strong>The truth is infinitely more spectacular.</strong> You are a multi-dimensional consciousness, and every choice you make creates a real, valid version of you in a parallel reality.
+                </div>
+                <div class="highlight-box">
+                    There is a version of you who took that job you turned down. A version who is a wildly successful musician. A version who is fearless, healthy, and living in joyous abundance. These are not fantasies—they are living aspects of your consciousness.
+                </div>
+            </section>
+            
+            <section id="protocol-4" class="section fade-in">
+                <h3 class="protocol-title">Protocol 4 — The Quantum Download</h3>
+                <div class="protocol-steps">
+                    <div class="content-text">
+                        In a state of deep relaxation or right before sleep, declare your command with the clarity and authority of a general addressing his troops:
+                    </div>
+                    <div class="quote">
+                        "I am now establishing a clear and direct channel to the probable self who has already achieved complete mastery of [state your desire]. I'm now downloading your core knowledge, successful strategies, and vibrational signature of success."
+                    </div>
+                    <div class="content-text">
+                        <strong>Watch for transmissions in the next 72 hours:</strong>
+                        <br>• Dream-state data with actionable symbolism
+                        <br>• Spontaneous insights from nowhere
+                        <br>• Intuitive impulses to take specific actions
+                    </div>
+                </div>
+            </section>
+            
+            <section id="coordinate-points" class="section fade-in">
+                <h2 class="section-title">Hacking the Matrix — Coordinate Points & Psychic Hotspots</h2>
+                <div class="content-text">
+                    The simulation you call reality is not uniform. There are certain coordinate points—specific times and places—where the veil between the inner and outer worlds is exceptionally thin, where thought crystallizes into matter with breathtaking speed.
+                </div>
+                
+                <h3 class="protocol-title">Temporal Coordinate Points — Moments of Power</h3>
+                <div class="highlight-box">
+                    <strong>Prime Manifestation Windows:</strong>
+                    <br>• <strong>Twilight states:</strong> Just before sleep and upon waking
+                    <br>• <strong>Creative trance:</strong> Flow states during creation
+                    <br>• <strong>Heart's resonance:</strong> Moments of pure love or gratitude
+                    <br>• <strong>Sacred void:</strong> Deep meditation when thought ceases
+                </div>
+            </section>
+            
+            <section id="protocol-5" class="section fade-in">
+                <h3 class="protocol-title">Forbidden Protocol #5 — The Time Expansion Directive</h3>
+                <div class="protocol-steps">
+                    <div class="content-text">
+                        Seth taught that chronological time is a physical illusion. You can learn to manipulate your perception of it.
+                    </div>
+                    <div class="step">
+                        <strong>Step 1:</strong> Set aside ten uninterrupted minutes
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> State intention: "I am now expanding this moment. I have all the psychological time I need to [your task]"
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Imagine the clock slowing to near stop
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Feel time becoming vast and spacious around you
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> Begin your mental task without any sense of rush
+                    </div>
+                </div>
+            </section>
+            
+            <section id="truth-god" class="section fade-in">
+                <h2 class="section-title">The Truth of God: The Throne Is Empty</h2>
+                <div class="content-text">
+                    For thousands of years, you have been programmed to believe in an external God—a king on a throne, a father in the sky, a separate judgmental deity to be feared and obeyed.
+                </div>
+                <div class="quote">
+                    "Seth reveals the devastating and liberating truth: that throne is empty."
+                </div>
+                <div class="content-text">
+                    God is not a person—not a "he" watching from afar. God is the infinite, intelligent creative energy from which all of existence springs. Seth called this force <strong>All That Is</strong>.
+                </div>
+                <div class="highlight-box">
+                    <strong>Revolutionary Truth:</strong> You are not a creation of God. You are a unique individual expression of God. You are not a single separate drop of water; you are a unique wave made of the same substance as the entire ocean.
+                </div>
+            </section>
+            
+            <section id="truth-soul" class="section fade-in">
+                <h2 class="section-title">The Truth of the Soul: An Indestructible Becoming</h2>
+                <div class="content-text">
+                    The second great lie used to control you is the concept of the soul as a single static entity—a spiritual marble that is put into your body at birth and leaves at death to be judged.
+                </div>
+                <div class="content-text">
+                    <strong>Seth reveals:</strong> The soul is not a thing; it is a process. It is not something you have; it is something you are becoming—an eternal, indestructible vortex of consciousness, constantly expanding and creating new versions of itself through experience.
+                </div>
+                <div class="highlight-box">
+                    This means you have never truly failed. You have never made a wrong decision. Every choice simply opens a new avenue of exploration for your soul to learn from.
+                </div>
+            </section>
+            
+            <section id="truth-evil" class="section fade-in">
+                <h2 class="section-title">The Truth of Evil — Dissolving the Shadow</h2>
+                <div class="content-text">
+                    The final and most insidious tool of control is the belief in an external active force of evil: a devil, a demon, a shadowy cabal, a predator lurking in the darkness waiting to corrupt and destroy you.
+                </div>
+                <div class="quote">
+                    "Seth's most liberating truth: evil is not a force. It is a void—the shadow cast by a consciousness that has forgotten its own light and its connection to All That Is."
+                </div>
+                
+                <div class="warning-box">
+                    <span class="warning-icon">⚠️</span><strong>Important Balance:</strong> While this perspective can reduce fear-based thinking, be careful not to use it to minimize real harm, abuse, or oppression. People's experiences of violence and injustice are valid and require both compassion and practical protective action.
+                </div>
+                
+                <div class="content-text">
+                    Darkness is not a thing; it is merely the absence of light. You cannot fight darkness. You simply and consciously turn on a light; the darkness vanishes.
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Practical Wisdom</div>
+                    <div class="content-text">
+                        This metaphysical view can coexist with practical discernment. You can see harmful behavior as arising from disconnection and pain <em>while also</em> maintaining healthy boundaries, seeking justice, and protecting yourself and others from real harm.
+                    </div>
+                </div>
+                
+                <div class="reality-check">
+                    <div class="check-title">🔍 Integration Questions</div>
+                    <ul class="check-questions">
+                        <li>Does this perspective help me respond to challenges with wisdom rather than fear?</li>
+                        <li>Am I using this to avoid necessary action or to minimize others' pain?</li>
+                        <li>Can I hold compassion for harmful behavior while still maintaining protection?</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="critical-thinking" class="section fade-in">
+                <h2 class="section-title">Critical Thinking Guide</h2>
+                <div class="content-text">
+                    The most empowering spiritual practice is maintaining your capacity to think clearly. Here are patterns to watch for in any teaching—including this one—that might limit rather than liberate your thinking:
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>🚨 Red Flag Patterns:</strong>
+                    <br>• <strong>Self-sealing logic:</strong> "If it doesn't work, you're doing it wrong" (makes theory unfalsifiable)
+                    <br>• <strong>Absolute language:</strong> "Never," "always," "no exceptions" (reality is usually more nuanced)
+                    <br>• <strong>Thought-stopping:</strong> Commands to shut down questioning or doubt
+                    <br>• <strong>Sacred-science aura:</strong> Mixing legitimate insights with unverifiable grand claims
+                    <br>• <strong>Us-vs-them framing:</strong> Creating siege mentality against "the system"
+                </div>
+                
+                <div class="protocol-steps">
+                    <h3 class="protocol-title">Weekly Doubt Practice</h3>
+                    <div class="content-text">
+                        Schedule a weekly "skeptic hour" to maintain intellectual honesty:
+                    </div>
+                    <div class="step">
+                        <strong>Ask:</strong> "Where could this teaching be wrong or incomplete?"
+                    </div>
+                    <div class="step">
+                        <strong>Identify:</strong> What evidence would change your mind about these ideas?
+                    </div>
+                    <div class="step">
+                        <strong>Test:</strong> Which beliefs are you holding loosely vs. rigidly?
+                    </div>
+                    <div class="step">
+                        <strong>Connect:</strong> Maintain relationships with people who don't share these views
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reality-checks" class="section fade-in">
+                <h2 class="section-title">Reality Check Questions</h2>
+                <div class="content-text">
+                    Use these questions regularly to ensure these practices are serving your growth rather than becoming a new form of limitation:
+                </div>
+                
+                <div class="reality-check">
+                    <div class="check-title">🔍 Personal Empowerment Check</div>
+                    <ul class="check-questions">
+                        <li>When something doesn't work out, do I examine multiple factors (skills, timing, context) or only blame my "beliefs"?</li>
+                        <li>Am I using these ideas to feel empowered, or to avoid dealing with practical challenges?</li>
+                        <li>Do I feel free to question and adapt these teachings, or guilty for doubting?</li>
+                        <li>Have my relationships and opportunities expanded or narrowed since adopting these practices?</li>
+                    </ul>
+                </div>
+                
+                <div class="reality-check">
+                    <div class="check-title">🔍 Health & Safety Check</div>
+                    <ul class="check-questions">
+                        <li>Am I using mind-body practices to complement or replace medical care?</li>
+                        <li>Do I feel pressure to "manifest" my way out of problems that need practical solutions?</li>
+                        <li>Am I processing difficult emotions or using these techniques to bypass them?</li>
+                        <li>Can I validate others' experiences of suffering without "fixing" their beliefs?</li>
+                    </ul>
+                </div>
+                
+                <div class="reality-check">
+                    <div class="check-title">🔍 Social Responsibility Check</div>
+                    <ul class="check-questions">
+                        <li>Do I still care about collective issues and injustices?</li>
+                        <li>Can I hold both personal responsibility and systemic awareness?</li>
+                        <li>Am I maintaining empathy for people in difficult circumstances?</li>
+                        <li>Do I act with humility, knowing others create their reality too?</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="integration" class="section fade-in">
+                <h2 class="section-title">Healthy Integration</h2>
+                <div class="content-text">
+                    The goal isn't to become a perfect reality creator, but to develop a more conscious, empowered, and compassionate way of living. Here's how to integrate these insights wisely:
+                </div>
+                
+                <div class="protocol-steps">
+                    <h3 class="protocol-title">The Both/And Approach</h3>
+                    <div class="step">
+                        <strong>Personal Agency + External Factors:</strong> "I significantly influence my experience AND other forces matter too"
+                    </div>
+                    <div class="step">
+                        <strong>Inner Work + Outer Action:</strong> "I work on my beliefs AND take practical steps in the world"
+                    </div>
+                    <div class="step">
+                        <strong>Spiritual Growth + Psychological Health:</strong> "I explore consciousness AND maintain emotional intelligence"
+                    </div>
+                    <div class="step">
+                        <strong>Individual Power + Collective Care:</strong> "I create my reality AND we're interconnected"
+                    </div>
+                </div>
+                
+                <div class="safeguard-tip">
+                    <span class="tip-icon">🛡️</span><strong>Integration Guidelines:</strong> Start with small experiments. Track results honestly. Keep what works, adapt what's partially helpful, and release what doesn't serve. Maintain connections with people who support your growth but don't share all your beliefs.
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>Empowered Living Checklist:</strong>
+                    <br>✓ I use these tools to enhance my life, not escape from it
+                    <br>✓ I maintain curiosity and flexibility in my beliefs
+                    <br>✓ I balance inner work with practical action
+                    <br>✓ I honor both my power and my interconnection with others
+                    <br>✓ I seek professional help when needed alongside spiritual practices
+                    <br>✓ I stay engaged with the world while cultivating inner peace
+                </div>
+            </section>
+            
+            <section id="declaration" class="section fade-in">
+                <h2 class="section-title">Graduation — Your Declaration of Sovereignty</h2>
+                <div class="content-text">
+                    The master class is over. The forbidden blueprint has been laid bare. The tools to dismantle your prison and architect your reality are now in your hands.
+                </div>
+                
+                <div class="protocol-steps">
+                    <h3 class="protocol-title">Step One</h3>
+                    <div class="content-text">
+                        <strong>Become the ruthless gatekeeper of your mind.</strong> Stand guard at the gates of your mind. Observe the thoughts that attempt to enter—the old programs of fear, doubt, and limitation.
+                    </div>
+                    
+                    <h3 class="protocol-title">Step Two</h3>
+                    <div class="content-text">
+                        <strong>Wield your imagination as a creative force.</strong> Your imagination is the womb of worlds. Dedicate time each day to the sacred practice of living in the end.
+                    </div>
+                    
+                    <h3 class="protocol-title">Step Three</h3>
+                    <div class="content-text">
+                        <strong>Trust your inner command.</strong> Treat your inner senses—your intuition, your dreams, your gut feelings—as the most reliable intelligence you can receive.
+                    </div>
+                    
+                    <h3 class="protocol-title">Step Four</h3>
+                    <div class="content-text">
+                        <strong>Act with the authority of your true self.</strong> Belief without action is self-delusion. Make decisions not from fear and scarcity, but from courage, abundance, and sovereign power.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="call-to-action" class="section fade-in">
+                <h2 class="section-title">Closing Call to Action</h2>
+                <div class="content-text">
+                    The master class is over. The old script is finished and the pen is in your hand. But knowledge without action is just a fleeting thought.
+                </div>
+                <div class="highlight-box">
+                    <strong>Your Declaration:</strong> The choice you make right now in this moment will determine whether this was just another webpage or the day your entire reality began to shift.
+                </div>
+                <div class="content-text">
+                    You are not a human being struggling to have a spiritual experience. <strong>You are a divine spiritual creator commanding a physical experience.</strong>
+                </div>
+                <div class="quote">
+                    "I am the author of my reality."
+                </div>
+                
+                <div class="balance-note">
+                    <div class="balance-title">🧭 Final Integration Wisdom</div>
+                    <div class="content-text">
+                        Take these insights as tools in your toolkit, not ultimate truths to be followed blindly. You are indeed a powerful creator <em>and</em> part of an interconnected whole. Your journey is about discovering what genuine empowerment looks like for you—beyond both victimhood and spiritual ego. Test these ideas gently, maintain your critical thinking, and remember: the most liberated people are those who can question even their most cherished beliefs.
+                    </div>
+                </div>
+                
+                <div class="safeguard-tip">
+                    <span class="tip-icon">🛡️</span><strong>Moving Forward:</strong> Start small, track results honestly, stay connected to people who challenge your thinking constructively, and remember that true spiritual maturity includes both profound faith and healthy skepticism.
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        function openMobileMenu() {
+            sidebar.classList.add('open');
+            mobileOverlay.classList.add('active');
+            mobileToggle.classList.add('open');
+            mobileToggle.innerHTML = '✕';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+        
+        function closeMobileMenu() {
+            sidebar.classList.remove('open');
+            mobileOverlay.classList.remove('active');
+            mobileToggle.classList.remove('open');
+            mobileToggle.innerHTML = '☰';
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        mobileToggle.addEventListener('click', () => {
+            if (sidebar.classList.contains('open')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+        
+        // Close menu when clicking overlay
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                // Get target section
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Close mobile menu
+                if (window.innerWidth <= 900) {
+                    closeMobileMenu();
+                }
+            });
+        });
+        
+        // Scroll progress indicator
+        const progressBar = document.getElementById('progressBar');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = scrolled / documentHeight;
+            
+            progressBar.style.transform = `scaleX(${progress})`;
+        });
+        
+        // Active section highlighting based on scroll
+        const sections = document.querySelectorAll('.section');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to corresponding nav link
+                    const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.section');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(element => {
+            fadeObserver.observe(element);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Auto-close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 900 && 
+                sidebar.classList.contains('open') && 
+                !sidebar.contains(e.target) && 
+                !mobileToggle.contains(e.target) &&
+                !mobileOverlay.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
